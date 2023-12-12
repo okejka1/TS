@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "structures/Graph.h"
+#include "algorithm/TabuSearch.h"
 
 using namespace std;
 
@@ -8,6 +9,12 @@ void test(){
     Graph graph(1);
     string fileName = "ftv47.atsp";
     graph.readGraphDirected(fileName);
+    TabuSearch ts(graph);
+    ts.generateGreedySolution();
+    ts.generateNeighborSolutions(graph.vertices * 100000);
+    ts.selectBestAdmissibleSolution();
+
+
 
 
 
